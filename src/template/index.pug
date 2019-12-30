@@ -2,11 +2,10 @@ extends ../shared/template/layout/_default
 
 block vars
   -
-    var title = '上書き'
+    var title = 'svg-animation'
 
 block main
   .test
-    p.text #{ data.top.title } 
     svg.c-circle(width='42', height='42', viewbox='0 0 42 42', version='1.1', xmlns:xlink='http://www.w3.org/1999/xlink')
       circle#js-circle.c-circle__item(cx='21', cy='21', r='20', fill='none', stroke='#000', stroke-miterlimit='10', stroke-width='2px')
     .c-button-wrap

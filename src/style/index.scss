@@ -1,0 +1,45 @@
+@import '../shared/styles/import';
+@import '../shared/icons/css/icons';
+
+$test: #fff;
+
+.body {
+  color: $test;
+}
+
+.text {
+  @include font-rem(24, 36);
+}
+
+.c-circle {
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.c-circle__item {
+  width: 100%;
+  transform: rotate(-90deg);
+  transform-origin: center;
+
+  /* (半径 * 2) * 3.14 */
+  stroke-dasharray: 126 126;
+}
+
+.c-button-wrap {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.c-button {
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ccc;
+
+  &.disable {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}

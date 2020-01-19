@@ -1,4 +1,5 @@
-import { TweenLite } from 'gsap';
+import { TweenMax } from 'gsap';
+import { makeArray } from './_make-array';
 
 (() => {
   window.addEventListener('DOMContentLoaded', () => {
@@ -15,12 +16,12 @@ import { TweenLite } from 'gsap';
 
       $$start.classList.remove('disable');
 
-      TweenLite.to($$circle, 1, {
+      TweenMax.to($$circle, 1, {
         strokeDasharray: '126 126'
       });
     };
 
-    const ani = TweenLite.to($$circle, 10, {
+    const ani = TweenMax.to($$circle, 10, {
       onStart: () => {
         // アニメーションが一度終わっているか確認
         if (isComplete) {
@@ -46,6 +47,23 @@ import { TweenLite } from 'gsap';
       if (ani.paused()) {
         $$restart.classList.remove('disable'); // 再開ボタンを解除
       }
+    });
+
+    const $$unkos = makeArray(document.querySelectorAll('.js-unko'));
+
+    const getRandom = num => {
+      return Math.floor(Math.random() * (num * 2)) - num;
+    };
+
+    console.log(getRandom(30));
+
+    $$unkos.forEach(el => {
+      TweenMax.to(el, 1, {
+        x: getRandom(100),
+        y: getRandom(100),
+        yoyo: true,
+        repeat: -1
+      });
     });
   });
 })();
